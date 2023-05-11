@@ -1,15 +1,15 @@
 import { Route, provideRouter } from '@angular/router'
 
-import { HomeComponent } from '~/components/HomeComponent/home.component'
-import { AboutComponent } from '~/components/AboutComponent/about.component'
+import { HomePage } from '~/pages/HomePage/home.component'
+import { AboutPage } from '~/pages/AboutPage/about.component'
 const routes: Route[] = [
   {
     path: '',
-    component: HomeComponent
+    component: HomePage
   },
   {
     path: 'about',
-    component: AboutComponent
+    component: AboutPage
   }
 ]
 export const appRouting = [provideRouter(routes)]
