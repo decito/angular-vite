@@ -1,15 +1,15 @@
-import { splitVendorChunkPlugin, defineConfig } from "vite";
-import { dependencies } from "./package.json";
+import { splitVendorChunkPlugin, defineConfig } from 'vite'
+import { dependencies } from './package.json'
 
-import path from "path";
+import path from 'path'
 
 function renderChunks(deps) {
-  let chunks = {};
-  Object.keys(deps).forEach((key) => {
-    if ([].includes(key)) return;
-    chunks[key] = [key];
-  });
-  return chunks;
+  let chunks = {}
+  Object.keys(deps).forEach(key => {
+    if ([].includes(key)) return
+    chunks[key] = [key]
+  })
+  return chunks
 }
 
 export default defineConfig({
@@ -20,14 +20,14 @@ export default defineConfig({
       output: {
         manualChunks: {
           vendor: [],
-          ...renderChunks(dependencies),
-        },
-      },
-    },
+          ...renderChunks(dependencies)
+        }
+      }
+    }
   },
   resolve: {
     alias: {
-      "~": path.resolve(__dirname, "./src/app"),
-    },
-  },
-});
+      '~': path.resolve(__dirname, './src/app')
+    }
+  }
+})
