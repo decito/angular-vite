@@ -2,100 +2,156 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@layer base {
+  :root {
+    --color-primary: 59 130 246;
+    --color-secondary: 209 213 219;
+    --color-success: 34 197 94;
+    --color-warning: 234 179 8;
+    --color-danger: 239 68 68;
+    --color-disabled: 107 114 128;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  }
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  @apply bg-slate-800 flex-col min-w-[320px] text-white h-screen flex place-items-center;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  @apply text-3xl font-bold;
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+h2 {
+  @apply text-2xl font-semibold;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #3178c6aa);
+h3 {
+  @apply font-semibold;
 }
 
-.card {
-  padding: 2em;
+input,
+select {
+  @apply bg-slate-500 p-2;
 }
 
-.read-the-docs {
-  color: #888;
+input.ng-invalid.ng-touched {
+  @apply border border-red-600;
+}
+
+a {
+  @apply cursor-pointer;
+}
+
+router-outlet {
+  @apply hidden;
+}
+
+a.router-link {
+  @apply transition-all hover:font-bold;
+}
+
+a.router-link-active {
+  @apply font-bold underline;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  @apply rounded border-2 p-2 font-semibold transition-all hover:brightness-125 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:brightness-100;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+button.primary:not(.outlined) {
+  @apply border-primary bg-primary;
+}
+
+button.secondary:not(.outlined) {
+  @apply border-secondary bg-secondary;
+}
+
+button.success:not(.outlined) {
+  @apply border-success bg-success;
+}
+
+button.warning:not(.outlined) {
+  @apply border-warning bg-warning;
+}
+
+button.danger:not(.outlined) {
+  @apply border-danger bg-danger;
+}
+
+button.disabled:not(.outlined) {
+  @apply border-disabled bg-disabled;
+}
+
+button.primary.outlined {
+  @apply border-primary text-primary hover:bg-primary hover:text-white;
+}
+
+button.secondary.outlined {
+  @apply border-secondary text-secondary hover:bg-secondary hover:text-white;
+}
+
+button.success.outlined {
+  @apply border-success text-success hover:bg-success hover:text-white;
+}
+
+button.warning.outlined {
+  @apply border-warning text-warning hover:bg-warning hover:text-white;
+}
+
+button.danger.outlined {
+  @apply border-danger text-danger hover:bg-danger hover:text-white;
+}
+
+button.disabled.outlined {
+  @apply border-disabled text-disabled;
+}
+
+button.sm {
+  @apply p-1;
+}
+
+button.full {
+  @apply w-full p-2;
+}
+
+button.lg {
+  @apply p-3;
+}
+
+button i {
+  @apply ml-2;
+}
+
+.radio-container {
+  @apply relative mb-2 flex cursor-pointer items-center gap-4 align-middle;
+}
+
+.radio-container .label-title {
+  @apply pl-10;
+}
+
+.radio-container input {
+  @apply absolute opacity-0;
+}
+
+.checkmark {
+  @apply absolute h-5 w-5 rounded-full bg-gray-300 transition-colors;
+}
+
+.radio-container:hover input ~ .checkmark {
+  @apply bg-gray-400;
+}
+
+.radio-container input:checked ~ .checkmark {
+  @apply bg-primary;
+}
+
+.radio-container input:checked ~ .checkmark:after {
+  @apply block;
+}
+
+.radio-container .checkmark:after {
+  @apply absolute top-2/4 left-2/4 hidden h-2 w-2 translate-x-[-50%] translate-y-[-50%] transform rounded-full bg-white transition-all content-[''];
 }
