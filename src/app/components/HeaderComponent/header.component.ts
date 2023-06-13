@@ -57,7 +57,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core'
   `
 })
 export class HeaderComponent {
-  title = 'Angular Playground'
+  title = 'Angular Next'
 
   //   constructor(private authService: AuthService) {}
 
