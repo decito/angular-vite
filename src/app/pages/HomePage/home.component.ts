@@ -13,7 +13,7 @@ import type { Variant } from '~/types'
     size="full"
     [variant]="variant"
     (click)="onClick()"
-    [disabled]="true">
+    [disabled]="false">
     Home
   </app-button>`
 })
