@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "@angular-eslint/builder": "^16.0.1",
-    "@angular-eslint/eslint-plugin": "^16.0.1",
+    "@angular-eslint/eslint-plugin": "^17.5.3",
     "@angular-eslint/eslint-plugin-template": "^16.0.1",
     "@angular-eslint/schematics": "^16.0.1",
     "@angular-eslint/template-parser": "^16.0.1",
